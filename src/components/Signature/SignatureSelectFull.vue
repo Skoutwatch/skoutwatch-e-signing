@@ -213,8 +213,6 @@ const createTypedSignature = () => {
 </script>
 
 <style scoped>
-@import '@/assets/css/signature-font-face.css';
-
 .grid {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);

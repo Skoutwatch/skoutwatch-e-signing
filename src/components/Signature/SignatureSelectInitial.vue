@@ -186,8 +186,6 @@ const createTypedSignature = () => {
 </script>
 
 <style scoped>
-@import "@/assets/css/signature-font-face.css";
-
 .hover {
   width: 46% !important;
   margin: 0 5px;
