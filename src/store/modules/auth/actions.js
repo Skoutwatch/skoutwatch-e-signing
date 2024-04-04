@@ -14,7 +14,7 @@ export const logoutUser = ({ commit }, formData) => {
 			commit('SET_TOKEN', null);
 			window.localStorage.removeItem(JSON.stringify('vuex'));
 
-			router.push({ name: 'Login' });
+			window.location.href = 'https://skoutwatch-e-signing-auth.netlify.app';
 		})
 		.catch((error) => {
 			if (error.response.status === 401 || error.response.status == 422) {
@@ -219,5 +219,4 @@ export const loginUser = ({ commit }, formData) => {
 			}
 		});
 };
-
 
