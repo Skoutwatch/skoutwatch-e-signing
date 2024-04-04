@@ -106,7 +106,7 @@
                   class="user-name fw-normal text-darker text-capitalize"
                   :style="{ fontSize: type == 'xs' ? '12px' : '' }"
                 >
-                  {{ fullName }}
+                  {{ fullName.substring(0, 10) }}
                 </span>
                 <span v-show="planned" class="user-status text-darker text-capitalize"
                   >{{ planned }} plan</span

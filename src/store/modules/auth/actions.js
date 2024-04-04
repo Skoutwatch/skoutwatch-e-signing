@@ -76,6 +76,48 @@ export const userVerifyOTP = ({ commit }, formData) => {
 		});
 };
 
+export const dynamicLogin = ({ commit }, formData) => {
+	commit('SET_LOADER', true);
+	commit('SET_TOKEN', formData.dynamic_token);
+	commit('SET_TOKEN_TYPE', 'Bearer');
+	User.show(formData.dynamic_token)
+		.then((response) => {
+			commit('SET_USER_PROFILE', response.data.data);
+
+			router.push({ name: 'document.upload' });
+
+			setTimeout(() => {
+				commit('SET_LOADER', false);
+			}, 1000);
+		})
+		.catch((error) => {
+			commit('SET_LOADER', false);
+			if (error.response.status == 422) {
+				toast.error(error.response.data.message, {
+					timeout: 5000,
+					position: 'top-right',
+				});
+			} else if (error.response.status == 401) {
+				let hasError = '';
+				if (error.response.data?.data?.error != '') {
+					hasError = error.response.data?.data?.error;
+				}
+				if (error.response.data?.errors?.root) {
+					hasError = error.response.data?.errors?.root;
+				}
+
+				if (hasError == 'You are not a participant in this document') {
+					router.push({ name: 'Error' });
+				}
+
+				toast.error(hasError, {
+					timeout: 5000,
+					position: 'top-right',
+				});
+			}
+		});
+};
+
 export const clearFlag = ({ commit }) => commit('SET_FLAG', {});
 
 export const resetPassword = ({ commit }, formData) => {
@@ -177,6 +219,5 @@ export const loginUser = ({ commit }, formData) => {
 			}
 		});
 };
-
 
 

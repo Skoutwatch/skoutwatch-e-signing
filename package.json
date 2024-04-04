@@ -1,5 +1,5 @@
 {
-  "name": "SkoutWatch",
+  "name": "Skoutwatch",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,6 +10,16 @@
   "dependencies": {
     "@vue/compiler-sfc": "^3.2.37",
     "@vue/component-compiler-utils": "^3.1.2",
+    "@solana/wallet-adapter-base": "^0.9.5",
+    "@solana/wallet-adapter-react": "^0.15.4",
+    "@solana/wallet-adapter-react-ui": "^0.9.6",
+    "@solana/wallet-adapter-wallets": "^0.16.0",
+    "@solana/web3.js": "^1.39.1",
+    "@types/varint": "^6.0.0",
+    "@web3auth/sign-in-with-solana": "^0.0.1",
+    "multiformats": "^9.0.4",
+    "sweetalert": "^2.1.2",
+    "varint": "^6.0.0",
     "aos": "^2.3.4",
     "axios": "^1.6.7",
     "buffer": "^6.0.3",
@@ -29,7 +39,7 @@
     "secure-ls": "^1.2.6",
     "signature_pad": "^4.0.5",
     "simple-vue-camera": "^1.1.2",
-    "sweetalert2": "^11.6.13",
+    "sweetalert2": "^11.10.6",
     "swiper": "^10.2.0",
     "uninstall": "^0.0.0",
     "uuid": "^9.0.1",
