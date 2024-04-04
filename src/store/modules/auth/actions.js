@@ -92,29 +92,8 @@ export const dynamicLogin = ({ commit }, formData) => {
 		})
 		.catch((error) => {
 			commit('SET_LOADER', false);
-			if (error.response.status == 422) {
-				toast.error(error.response.data.message, {
-					timeout: 5000,
-					position: 'top-right',
-				});
-			} else if (error.response.status == 401) {
-				let hasError = '';
-				if (error.response.data?.data?.error != '') {
-					hasError = error.response.data?.data?.error;
-				}
-				if (error.response.data?.errors?.root) {
-					hasError = error.response.data?.errors?.root;
-				}
-
-				if (hasError == 'You are not a participant in this document') {
-					router.push({ name: 'Error' });
-				}
-
-				toast.error(hasError, {
-					timeout: 5000,
-					position: 'top-right',
-				});
-			}
+			window.location.href = 'https://skoutwatch-e-signing-auth.netlify.app';
+			console.error(error);
 		});
 };
 
